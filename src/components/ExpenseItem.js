@@ -1,14 +1,18 @@
+import React, {useState} from 'react';
 import ExpenseDate from './ExpepenseDate';
 import './ExpenseItem.css'
-function ExpenseItem(props) {
+const ExpenseItem=(props)=> {
+  const [tittle,setTittle]=useState(props.tittle);
+  console.log('ExpenseItem Evalutaed By React');
  const clickHandler=()=>{
-  console.log("clicked!!!");
+  setTittle('updated!')
+  console.log(tittle);
  }
   return (
     <div className="expense-item">
       <ExpenseDate date={props.date} />
       <div className='expense-item_description'>
-        <h2>{props.tittle}</h2>
+        <h2>{tittle}</h2>
         </div>
         <div className='expense-item_price'>${props.amount}</div>
         <button onClick={clickHandler}>Change</button>
