@@ -17,6 +17,7 @@ const Expenses=(props)=>{
           id:'e3' ,tittle:'Desk',amount:100,date:new Date(2023,2,1)
         }
       ]
+      
     return (<div className="expenses">
       <ExpenseItem tittle={expenses[0].tittle} amount={expenses[0].amount} date={expenses[0].date} />
        <ExpenseItem tittle={expenses[1].tittle} amount={expenses[1].amount} date={expenses[1].date} />
