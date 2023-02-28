@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ExpenseItem from "../ExpenseItem";
 import ExpenseFilter from "../ExpenseFilter";
+import ExpensesChart from "./ExpensesChart";
 import "./Expenses.css";
 const Expenses = (props) => {
   const [filteredYear, setFilteredYear] = useState("2020");
@@ -21,6 +22,9 @@ const Expenses = (props) => {
       date={expense.date}
     />
   ))}
+const filteredExpenses=props.items.filter((expense)=>{
+  return expense.date.getFullYear().toString()===filteredYear;
+})
 
   return (
     <div className="expenses">
@@ -29,6 +33,7 @@ const Expenses = (props) => {
         onChange={filterChangeHandler}
       />
       {expensecontent}
+      <ExpensesChart expense={filteredExpenses}/>
     </div>
   );
 };
